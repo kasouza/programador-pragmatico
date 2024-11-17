@@ -509,8 +509,8 @@ static const yytype_int8 yytranslate[] =
 /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_int8 yyrline[] =
 {
-       0,    29,    29,    31,    32,    35,    36,    39,    42,    49,
-      54
+       0,    30,    30,    32,    33,    36,    37,    41,    44,    51,
+      57
 };
 #endif
 
@@ -1074,48 +1074,50 @@ yyreduce:
   switch (yyn)
     {
   case 6: /* time: hour AMPM  */
-#line 36 "test.y"
+#line 37 "test.y"
                 {
+        printf("%d\n", (yyvsp[-1].digit));
         strncpy(ampm, (yyvsp[0].ampm), 2);
     }
-#line 1082 "test.tab.c"
+#line 1083 "test.tab.c"
     break;
 
   case 7: /* time: hour COLLON minutes  */
-#line 39 "test.y"
+#line 41 "test.y"
                           {
         strncpy(collon, ":", 1);
     }
-#line 1090 "test.tab.c"
+#line 1091 "test.tab.c"
     break;
 
   case 8: /* time: hour COLLON minutes AMPM  */
-#line 42 "test.y"
+#line 44 "test.y"
                                {
         strncpy(collon, ":", 1);
         strncpy(ampm, (yyvsp[0].ampm), 2);
     }
-#line 1099 "test.tab.c"
+#line 1100 "test.tab.c"
     break;
 
   case 9: /* hour: DIGIT DIGIT  */
-#line 49 "test.y"
+#line 51 "test.y"
                 {
         hour = (yyvsp[-1].digit) * 10 + (yyvsp[0].digit);
+        (yyval.digit) = (yyvsp[-1].digit) * 10 + (yyvsp[0].digit);
     }
-#line 1107 "test.tab.c"
+#line 1109 "test.tab.c"
     break;
 
   case 10: /* minutes: DIGIT DIGIT  */
-#line 54 "test.y"
+#line 57 "test.y"
                 {
         minutes = (yyvsp[-1].digit) * 10 + (yyvsp[0].digit);
     }
-#line 1115 "test.tab.c"
+#line 1117 "test.tab.c"
     break;
 
 
-#line 1119 "test.tab.c"
+#line 1121 "test.tab.c"
 
       default: break;
     }
@@ -1308,7 +1310,7 @@ yyreturnlab:
   return yyresult;
 }
 
-#line 58 "test.y"
+#line 61 "test.y"
 
 
 int yyerror(char *s) {

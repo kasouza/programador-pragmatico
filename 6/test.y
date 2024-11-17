@@ -17,6 +17,7 @@ char ampm[3] = "";
 
 %type <digit> DIGIT
 %type <ampm> AMPM
+%type <digit> hour
 
 %union {
     int digit;
@@ -48,6 +49,7 @@ time:
 hour:
     DIGIT DIGIT {
         hour = $1 * 10 + $2;
+        $$ = $1 * 10 + $2;
     }
 
 minutes:

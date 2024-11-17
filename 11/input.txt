@@ -1,0 +1,3 @@
+enum_name
+VAL_A
+VAL_B
